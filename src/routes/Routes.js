@@ -6,6 +6,7 @@ import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
 import InfoMoksha from '../pages/InfoMoksha/infoMoksha'
 import PageNotFound from '../pages/PageNotFound/PageNotFound'
+import VerifyUser from '../pages/VerifyUser/VerifyUser'
 
 
 const Routes = () => {
@@ -17,6 +18,7 @@ const Routes = () => {
       <Route path='/login' element={<Login/>}/>
       <Route path='/Register' element={<Register/>}/>
       <Route path='/infoMoksha' element={<InfoMoksha/>}/>
+      <Route path='/verifyUser' element={<VerifyUser/>}/>
 
       <Route path='*' element={<PageNotFound />} />
     </ReactDomRoutes>

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const WrapperModalPanel = styled.div`
-    position: absolute;
-    display: ${({ModalHidden}) => ModalHidden ? "none;" : "flex;"};
+    position: fixed;
+    display: ${({show}) => show ? "flex;" : "none;"};
     justify-content: center;
     top: 0%;
-    z-index: +2;
+    z-index: +100;
     width: 100vw;
     height: 100vh;
     align-items: center;
@@ -13,10 +13,10 @@ export const WrapperModalPanel = styled.div`
     cursor: pointer;
 `
 
+
 export const ContainerModalPanel = styled.div`
     top: 0%;
-    z-index: +2;
-    width: 500px;
+    width: 100vw;
     height: 200px;
     border-radius: 10px;
     background-color: #9CE3D4;
@@ -25,6 +25,6 @@ export const ContainerModalPanel = styled.div`
     align-items: center;
 
     h3{
-        font-size: 3rem;
+        font-size: 2rem;
     }
 `

@@ -13,32 +13,12 @@ import { loginInitialValues } from "../../Formik/initialValues";
 import { loginValidationSchema } from "../../Formik/validationSchema";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../../redux/user/userSlice";
+import { loginUser } from "../../axios/axiosUser";
 
 const Login = () => {
-  const users = JSON.parse(localStorage.getItem(`createUser`)) || [];
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const validationUser = (user) => {
-    const userFilter = users.filter((item) => item.email === user.email);
-    if(!userFilter.length){
-      alert("Usuario no registrado")
-      return;
-    }
-    const valid =
-      userFilter[0].email === user.email &&
-      userFilter[0].password === user.password
-        ? true
-        : false;
-
-    if (valid) {
-      dispatch(setCurrentUser(userFilter[0]));
-    }else{
-      alert("Email o contraseña erronea.")
-    }
-    return valid;
-  };
 
   return (
     <LoginWrapper>
@@ -52,12 +32,17 @@ const Login = () => {
           <Formik
             initialValues={loginInitialValues}
             validationSchema={loginValidationSchema}
-            onSubmit={async (values, { resetForm }) => {
-              if (validationUser(values)) {
-                resetForm();
+            onSubmit={async(values)=>{
 
-                navigate("/products");
-              }
+              const user = await loginUser(values.email, values.password);
+                if(user){
+                  dispatch(setCurrentUser({
+                    ...user,
+                    token : user.token
+                  }))
+                  navigate("/products");
+                }  
+      
             }}
           >
             <Form>

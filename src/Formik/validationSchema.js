@@ -1,5 +1,5 @@
 import * as Yup from "yup"
-import { regEmail } from "../utils/regExp"
+import { regEmail } from "../utils/validateLogin"
 
 export const contactoValidationSchema = Yup.object({
     name : Yup.string().required('Campo requerido'),
@@ -19,4 +19,8 @@ export const registerValidationSchema = Yup.object({
 export const loginValidationSchema = Yup.object({
     email : Yup.string().matches(regEmail,"Email no valido").required('Campo requerido'),
     password : Yup.string().min(6,"Minimo de 6 caracteres").required('Campo requerido'),
+})
+
+export const verifyUserSchema = Yup.object({
+    code : Yup.string().min(6,"Minimo de 6 caracteres").required('Campo requerido'),
 })
