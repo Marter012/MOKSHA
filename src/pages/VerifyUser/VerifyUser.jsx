@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FoundContainerStyled,
   FoundTextStyled,
@@ -14,17 +14,21 @@ import { verifyUserSchema } from "../../Formik/validationSchema";
 import { verifyUser } from "../../axios/axiosUser";
 import { setCurrentUser } from "../../redux/user/userSlice";
 import useRedirect from "../../hooks/useRedirect";
+import ModalVerifyUser from "../../components/ModalPanel/ModalVerifyUser";
 
 const VerifyUser = () => {
+  useRedirect("/products");
 
-  useRedirect("/products")
+  const [show, setShow] = useState(false);
 
   const user = useSelector((state) => state.user.currentUser);
-  
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
     <div>
+      <ModalVerifyUser show={show} setShow={setShow} />
+
       <FoundContainerStyled>
         <FoundTextStyled>
           <p>Ingrese el codigo enviado a "{user.user.email}" </p>
@@ -33,15 +37,17 @@ const VerifyUser = () => {
             validationSchema={verifyUserSchema}
             onSubmit={async (values) => {
               const valid = await verifyUser(user.user.email, values.code);
-              console.log(valid)
               if (valid) {
-                navigate("/products")
                 dispatch(
                   setCurrentUser({
                     ...user,
                     verifiel: true,
                   })
                 );
+                setShow(!show);
+                setTimeout(() => {
+                  navigate("/products");
+                }, 5000);
               }
             }}
           >

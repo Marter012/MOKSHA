@@ -31,11 +31,15 @@ const ModalCart = ({ hidden }) => {
   );
 
   const verifyUser = () => {
-    if (!user.verifiel) {
-      navigate("/verifyUser");
-    } else {
-      dispatch(toggleHiddenCart());
+    if (user.verifiel) {
+      dispatch(toggleHiddenCart(hidden));
+      setShow(!show);
       dispatch(clearCart());
+      return;
+    } else {
+      navigate("/verifyUser");
+      dispatch(toggleHiddenCart(hidden));
+      return;
     }
   };
   return (
@@ -82,9 +86,7 @@ const ModalCart = ({ hidden }) => {
             onClick={() => {
               return !user
                 ? (navigate("/login"), dispatch(toggleHiddenCart()))
-                : (verifyUser,
-                  setShow(!show),
-                  dispatch(toggleHiddenCart(hidden)));
+                : verifyUser();
             }}
             color="white"
             bg_color="#344B46"

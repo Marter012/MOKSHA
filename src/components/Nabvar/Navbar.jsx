@@ -15,6 +15,7 @@ import ModalCart from "./ModalCart/ModalCart";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, toggleHiddenCart } from "../../redux/cart/cartSlice";
 import { setCurrentUser } from "../../redux/user/userSlice";
+import { selectCategory } from "../../redux/categories/categoriesSlice";
 
 const Navbar = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -39,7 +40,7 @@ const Navbar = () => {
         </motion.div>
 
         <motion.div whileTap={{ scale: 0.9 }}>
-          <Link to="/products">Productos</Link>
+          <Link onClick={()=>dispatch(selectCategory(null))} to="/products">Productos</Link>
         </motion.div>
 
         <motion.div whileTap={{ scale: 0.9 }}>
