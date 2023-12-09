@@ -1,16 +1,18 @@
 import React from "react";
 import { ContainerModalPanel, WrapperModalPanel } from "./ModalPanelStyles";
 
-const ModalVerifyUser = ({show ,setShow}) => {
-
+const ModalVerifyUser = ({ show, setShow }) => {
   return (
     <WrapperModalPanel
+      valid={show}
       show={show}
       onClick={() => {
         setShow(!show);
       }}
     >
-      <ContainerModalPanel><h3>Verificacion Exitosa, ya podes realizar compras.</h3></ContainerModalPanel>
+      <ContainerModalPanel>
+        <h3>Verificacion Exitosa, ya podes realizar compras.</h3>
+      </ContainerModalPanel>
     </WrapperModalPanel>
   );
 };

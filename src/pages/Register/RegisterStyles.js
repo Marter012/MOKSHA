@@ -3,16 +3,15 @@ import { Form as FormikForm } from "formik";
 
 export const RegisterWrapper = styled.div`
   width: 100vw;
-  min-height: 900px;
-  margin-top: 90px;
+  min-height: calc(100vh - (170px));
   display: flex;
+  margin-top: 100px;
   justify-content: center;
-  text-align: center;
-  align-items: center;
-`;
+  `;
 
 export const ContainerRegister = styled.div`
-  height: 700px;
+  height: 450px;
+  text-align: center;
   display: flex;
   width: 80%;
   overflow: hidden;

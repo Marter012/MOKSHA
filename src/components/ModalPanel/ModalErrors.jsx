@@ -1,7 +1,7 @@
 import React from "react";
 import { ContainerModalPanel, WrapperModalPanel } from "./ModalPanelStyles";
 
-const ModalBuy = ({ show, setShow }) => {
+const ModalErrors = ({ show, setShow, msg }) => {
   return (
     <WrapperModalPanel
       valid={show}
@@ -11,10 +11,10 @@ const ModalBuy = ({ show, setShow }) => {
       }}
     >
       <ContainerModalPanel>
-        <h3>Pedido Confirmado</h3>
+        <h3>{msg}</h3>
       </ContainerModalPanel>
     </WrapperModalPanel>
   );
 };
 
-export default ModalBuy;
+export default ModalErrors;

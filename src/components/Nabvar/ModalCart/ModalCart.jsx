@@ -31,12 +31,12 @@ const ModalCart = ({ hidden }) => {
   );
 
   const verifyUser = () => {
-    if (user.verifiel) {
+    if (user.user.verifiel) {
       dispatch(toggleHiddenCart(hidden));
       setShow(!show);
       dispatch(clearCart());
       return;
-    } else {
+    } else{
       navigate("/verifyUser");
       dispatch(toggleHiddenCart(hidden));
       return;

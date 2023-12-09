@@ -22,8 +22,12 @@ export const FoundTextStyled = styled.div`
   text-align: center;
   align-items: center;
 
-  & h1 {
+  h1 {
     margin: 0;
+  }
+
+  p{
+    font-size: 1.5rem;
   }
 
   @media (max-width: 600px) {

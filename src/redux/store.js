@@ -6,12 +6,14 @@ import categoriesReducer from './categories/categoriesSlice';
 import productsReducer from './products/productsSlice';
 import cartReducer from './cart/cartSlice';
 import userReducer from './user/userSlice';
+import errorsReducer from './erorrs/erorrs';
 
 const reducers = combineReducers({
     categories : categoriesReducer,
     products : productsReducer,
     cart : cartReducer,
     user : userReducer,
+    errors : errorsReducer,
 })
 
 const persistConfig = {

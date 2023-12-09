@@ -3,16 +3,14 @@ import { Form as FormikForm } from "formik";
 
 export const LoginWrapper = styled.div`
   width: 100vw;
-  min-height: 900px;
-  margin-top: 90px;
   display: flex;
+  margin-top: 100px;
   justify-content: center;
-  text-align: center;
-  align-items: center;
 `;
 
 export const ContainerLogin = styled.div`
-  height: 700px;
+  height: 450px;
+  text-align: center;
   display: flex;
   width: 80%;
   overflow: hidden;

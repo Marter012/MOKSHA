@@ -11,10 +11,12 @@ export const createUser = async (name, surname, phone, email, password) => {
       password,
     });
 
-    return response.data;
+    const code = 1;
+
+    return {response : response.data,code};
   } catch (error) {
-    console.log(error);
-    return alert(error.response.data.errors.errors[0].msg);
+    console.log(error);    
+    return error.response.data.errors.errors[0].msg;
   }
 };
 
@@ -24,10 +26,13 @@ export const loginUser = async (email, password) => {
       email,
       password,
     });
-    return response.data;
+
+    const code = 1;
+
+    return {response : response.data,code};
   } catch (error) {
     console.log(error);
-    return alert(error.response.data.msg);
+    return error.response.data.msg;
   }
 };
 
@@ -37,9 +42,11 @@ export const verifyUser = async (email, code) => {
       email,
       code,
     });
-    return response.data;
+    const codeVerify = 1;
+    
+    return {response : response.data, codeVerify};
   } catch (error) {
     console.log(error);
-    return alert(error.response.data.msg);
+    return error.response.data.msg;
   }
 };

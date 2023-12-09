@@ -88,11 +88,9 @@ export const ModalProductsStyled = styled.div`
 `;
 
 export const ModalPriceStyled = styled(ModalTopStyled)`
-  display: block;
-  text-align: end;
+  display: flex;
+  flex-direction: column;
   height: auto;
-  margin-top: 0;
-  margin-bottom: 10px;
   div {
     display: flex;
     width: 100%;
@@ -103,10 +101,6 @@ export const ModalPriceStyled = styled(ModalTopStyled)`
     & p {
       margin: 5px;
     }
-  }
-  button {
-    position: absolute;
-    right: 20px;
   }
 `;
 
