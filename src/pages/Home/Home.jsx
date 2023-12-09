@@ -26,7 +26,7 @@ const Home = () => {
             <p>DURABILIDAD</p>
             <span>
               Nuestros mates estan elaborados con materia prima de primera
-              calidad, garantizando una mejor durabilidad y mayor calidad.
+              índole, garantizando una mejor durabilidad y mayor calidad.
             </span>
           </div>
         </section>
