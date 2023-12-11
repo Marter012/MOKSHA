@@ -13,30 +13,35 @@ import Hero from "../../components/Hero/Hero";
 import { Slider } from "../../components/Slider/Slider";
 import { ButtonStyled } from "../../components/IU/Button/ButtonStyled";
 import { selectCategory } from "../../redux/categories/categoriesSlice";
+
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   return (
     <HomeContainerStyles>
       <Hero />
       <DescriptionContainer>
+        <img
+          src="https://lespanola.com/cdn/shop/articles/mate-tea-2022-11-16-11-06-12-utc_resized-min.jpg?crop=center&height=719&v=1678910572&width=1080"
+          alt="img"
+        />
+
         <section>
           <div>
-            <img src="" alt="" />
-            <p>DURABILIDAD</p>
+            <p>Durabilidad</p>
             <span>
               Nuestros mates estan elaborados con materia prima de primera
-              índole, garantizando una mejor durabilidad y mayor calidad.
+              aportando y garantizando una mayor durabilidad y mejor calidad.
             </span>
           </div>
         </section>
         <section>
           <div>
-            <img src="" alt="" />
-            <p>LIBRE EXPRESION</p>
+            <p>Diseño Personalizado</p>
             <span>
-              Si queres mates personalizados, no busques mas! <br/> Trabajamos mates
-              prediseñados con posibilidad de darle un toque personal.
+              Si queres mates personalizados, no busques mas! <br /> Trabajamos
+              mates prediseñados con posibilidad de darle un toque personal.
             </span>
           </div>
         </section>
@@ -47,7 +52,8 @@ const Home = () => {
           <div>
             <h2>¿Que producto te interesa conocer?</h2>
             <p>
-            Podes encontrar tu set matero perfecto, para disfrutar y/o compartir esta tradicion que tanto nos acompaña.
+              Podes encontrar tu set matero perfecto, para disfrutar y/o
+              compartir esta tradicion que tanto nos acompaña.
             </p>
           </div>
           <SliderInfoButtons>

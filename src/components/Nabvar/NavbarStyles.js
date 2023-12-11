@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const NavbarContainerStyled = styled.header`
   height: 90px;
+  width: 100vw;
   background-color: var(--primary);
   z-index: +5;
   position: fixed;
   display: flex;
-  width: 100vw;
   justify-content: space-around;
   align-items: center;
 
@@ -18,7 +18,6 @@ export const NavbarContainerStyled = styled.header`
 `;
 
 export const LogoStyled = styled.div`
-  padding: 1.5rem;
   font-size: 3rem;
   font-weight: 800;
   a {
@@ -28,15 +27,14 @@ export const LogoStyled = styled.div`
 
   @media (max-width: 960px) {
     font-size: 2rem;
-    padding: 0px;
   }
 `;
 
 export const LinksContainerStyled = styled.div`
-  width: 80%;
+  width: 70%;
   color: white;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   gap: 40px;
 

@@ -6,8 +6,8 @@ const Hero = () => {
     <HeroContainerStyles>
       <div>
         <h2>
-          Hay un dicho que dice: <br /><br /> Recordate, que el que
-          pisa nuestro suelo, no se va si toma mate.
+          Hay un dicho que dice: <br /><br /> "Recordate, que el que
+          pisa nuestro suelo, no se va si toma mate."
         </h2>
       </div>
       <img

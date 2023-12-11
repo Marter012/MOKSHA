@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const SliderWrapper = styled.div`
   width: 500px;
   height: 400px;  
+  padding: 50px;
 
   @media (max-width: 1000px) {
     display: none;

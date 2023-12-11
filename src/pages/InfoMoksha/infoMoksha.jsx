@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FormContacto,
   FormInfo,
@@ -10,15 +10,26 @@ import LoginInput from "../../components/IU/LoginInput/LoginInput";
 import { contactoInitialValues } from "../../Formik/initialValues";
 import { contactoValidationSchema } from "../../Formik/validationSchema";
 import Submit from "../../components/IU/Submit/Submit";
+import Loader from "../../components/IU/Loader/Loader";
+import ModalGeneric from "../../components/ModalPanel/ModalGeneric";
 
 const InfoMoksha = () => {
+  const [show, setShow] = useState(false);
+
   return (
     <InfoContainerStyles>
+      <img
+        src="https://res.cloudinary.com/dsgcmsjv4/image/upload/v1696888593/Moksha/r24ntoenirzbsn83gaw3.jpg"
+        alt=""
+      />
+      <ModalGeneric
+        redirecTo={"infoMoksha"}
+        show={show}
+        setShow={setShow}
+        msg={"Mensaje enviado con exito."}
+      />
+
       <InformationContainer>
-        <img
-          src="https://res.cloudinary.com/dsgcmsjv4/image/upload/v1696889359/Moksha/tash47bkjazliqz2exei.webp"
-          alt=""
-        />
         <div>
           <p>¿Que es MOKSHA?</p>
           <span>
@@ -37,14 +48,29 @@ const InfoMoksha = () => {
         <Formik
           initialValues={contactoInitialValues}
           validationSchema={contactoValidationSchema}
-          onSubmit={(values,{resetForm}) => {resetForm();alert("Mensaje Enviado")}}
+          onSubmit={({ resetForm }) => {
+            resetForm();
+            setShow(!show);
+          }}
         >
-          <FormInfo>
-            <LoginInput name="name" type="text" placeholder="Nombre y Apellido"  />
-            <LoginInput name="email" type="email" placeholder="Email"  />
-            <LoginInput name="textData" type="text" placeholder="Tu consulta."  />
-            <Submit type="button" onClick={()=>""} bg_color="#7EC2BF"  >Enviar</Submit>
-          </FormInfo>
+          {({ isSubmitting }) => (
+            <FormInfo>
+              <LoginInput
+                name="name"
+                type="text"
+                placeholder="Nombre y Apellido"
+              />
+              <LoginInput name="email" type="email" placeholder="Email" />
+              <LoginInput
+                name="textData"
+                type="text"
+                placeholder="Tu consulta."
+              />
+              <Submit type="button" onClick={() => ""} bg_color="#7EC2BF">
+                {isSubmitting ? <Loader /> : "Enviar"}
+              </Submit>
+            </FormInfo>
+          )}
         </Formik>
       </FormContacto>
     </InfoContainerStyles>

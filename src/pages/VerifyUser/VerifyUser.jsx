@@ -12,13 +12,10 @@ import { verifyUserInitialValues } from "../../Formik/initialValues";
 import { verifyUserSchema } from "../../Formik/validationSchema";
 import { verifyUser } from "../../axios/axiosUser";
 import { setCurrentUser } from "../../redux/user/userSlice";
-import useRedirect from "../../hooks/useRedirect";
-import ModalVerifyUser from "../../components/ModalPanel/ModalVerifyUser";
 import ModalErrors from "../../components/ModalPanel/ModalErrors";
+import ModalGeneric from "../../components/ModalPanel/ModalGeneric";
 
 const VerifyUser = () => {
-  
-  useRedirect("/products");
 
   const [show, setShow] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -28,7 +25,12 @@ const VerifyUser = () => {
   const dispatch = useDispatch();
   return (
     <div>
-      <ModalVerifyUser show={show} setShow={setShow} />
+      <ModalGeneric
+        show={show}
+        setShow={setShow}
+        msg={"Verificacion Exitosa, ya podes realizar compras."}
+        redirecTo={"products"}
+      />
       <ModalErrors show={showError} setShow={setShowError} msg={showMsg} />
 
       <FoundContainerStyled>
@@ -46,10 +48,12 @@ const VerifyUser = () => {
                   setCurrentUser({
                     ...userData,
                     user,
-                  })
-                ); 
-              }else {
-                setShowMsg(valid)
+                  })                  
+                );
+                setShow(!show)
+                setShowMsg("valid");
+              } else {
+                setShowMsg(valid);
                 setShowError(!showError);
                 return;
               }

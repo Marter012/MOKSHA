@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearCart, toggleHiddenCart } from "../../../redux/cart/cartSlice";
 import Button from "../../IU/Button/Button";
 import { useNavigate } from "react-router-dom";
-import ModalBuy from "../../ModalPanel/ModalBuy";
+import ModalGeneric from "../../ModalPanel/ModalGeneric";
 
 const ModalCart = ({ hidden }) => {
   const [show, setShow] = useState(false);
@@ -51,7 +51,7 @@ const ModalCart = ({ hidden }) => {
         />
       )}
 
-      <ModalBuy show={show} setShow={setShow} />
+      <ModalGeneric show={show} setShow={setShow} msg={"Pedido Confirmado"} />
 
       <ModalContainerStyled hidden={hidden}>
         <ModalTopStyled>

@@ -5,23 +5,30 @@ export const HomeContainerStyles = styled.div`
 `;
 export const DescriptionContainer = styled.div`
   width: 100vw;
-  height: calc(700px);
+  height: 900px;
   display: flex;
   text-align: center;
   align-items: center;
+  img{
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 900px;
+    object-fit: cover;
+  }
   section {
-    background-color: #1A4F46;
     display: flex;
     justify-content: space-around;
     border-left: 1px dashed black;
     border-right: 1px dashed black;
     width: 100%;
-    height: 300px;
+    height: 400px;
     color: white;
   }
-
   div {
-    width: 80%;
+    background-color: rgb(26,79,70,0.7);
+    border-radius: 20px;
+    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -94,8 +101,9 @@ export const SectionSlider = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: rgb(173, 232, 219, 0.3);
-
+  background-color: rgb(0, 0, 0, 0.3);
+  color: white;
+  
   @media(max-width: 400px){
     padding: 0px;
   }
@@ -119,6 +127,7 @@ export const SliderInfo = styled.div`
   }
   p {
     font-size: 1.6rem;
+    font-weight: bold;
   }
 
   @media (max-width: 1150px) {

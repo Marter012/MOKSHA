@@ -12,11 +12,11 @@ import LoginInput from "../../components/IU/LoginInput/LoginInput";
 import { registerInitialValues } from "../../Formik/initialValues";
 import { registerValidationSchema } from "../../Formik/validationSchema";
 import { createUser, loginUser } from "../../axios/axiosUser";
-import ModalRegister from "../../components/ModalPanel/ModalRegister";
 import { setCurrentUser } from "../../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import ModalErrors from "../../components/ModalPanel/ModalErrors";
 import Loader from "../../components/IU/Loader/Loader";
+import ModalGeneric from "../../components/ModalPanel/ModalGeneric";
 
 const Register = () => {
   const [show, setShow] = useState(false);
@@ -27,7 +27,12 @@ const Register = () => {
 
   return (
     <RegisterWrapper>
-      <ModalRegister show={show} setShow={setShow} />
+      <ModalGeneric
+        show={show}
+        setShow={setShow}
+        msg={"Codigo de verificacion enviado, verifica tu correo."}
+        redirecTo={"products"}
+      />
       <ModalErrors show={showError} setShow={setShowError} msg={showMsg} />
 
       <ContainerRegister>

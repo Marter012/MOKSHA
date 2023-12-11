@@ -14,7 +14,7 @@ import { loginValidationSchema } from "../../Formik/validationSchema";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../../redux/user/userSlice";
 import { loginUser } from "../../axios/axiosUser";
-import ModalErrors from "../../components/ModalPanel/ModalErrors";
+import ModalGeneric from "../../components/ModalPanel/ModalErrors";
 import Loader from "../../components/IU/Loader/Loader";
 
 const Login = () => {
@@ -27,7 +27,7 @@ const Login = () => {
   return (
     <LoginWrapper>
       
-      <ModalErrors show={showError} setShow={setShowError} msg={showMsg.toUpperCase()} />
+      <ModalGeneric show={showError} setShow={setShowError} msg={showMsg.toUpperCase()} />
 
       <ContainerLogin>
         <img

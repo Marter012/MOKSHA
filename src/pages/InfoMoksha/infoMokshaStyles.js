@@ -4,6 +4,15 @@ import { Form } from "../Login/LoginStyles";
 export const InfoContainerStyles = styled.div`
   height: auto;
   display: flex;
+  background-color: rgb(255, 255, 255, 0.6);
+
+  img {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   @media (max-width: 1000px) {
     display: block;
@@ -14,19 +23,9 @@ export const InformationContainer = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
-
-  img {
-    position: absolute;
-    z-index: -1;
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
-  }
-
   div {
     width: 100%;
     height: 100%;
-    background-color: rgb(255, 255, 255, 0.6);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,8 +63,10 @@ export const InformationContainer = styled.div`
 export const FormContacto = styled.div`
   margin-top: 90px;
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  align-items: center;
 
   h3 {
     font-size: 2rem;
@@ -80,8 +81,7 @@ export const FormContacto = styled.div`
 `;
 
 export const FormInfo = styled(Form)`
-  height: 70%;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
 `;

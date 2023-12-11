@@ -40,12 +40,30 @@ const Navbar = () => {
         </motion.div>
 
         <motion.div whileTap={{ scale: 0.9 }}>
-          <Link onClick={()=>dispatch(selectCategory(null))} to="/products">Productos</Link>
+          <Link onClick={() => dispatch(selectCategory(null))} to="/products">
+            Productos
+          </Link>
         </motion.div>
 
         <motion.div whileTap={{ scale: 0.9 }}>
           <Link to="/infoMoksha">Que es Moksha?</Link>
         </motion.div>
+        {user !== null ? (
+          !user?.user.verifiel ? (
+            <motion.div whileTap={{ scale: 0.9 }}>
+              <Link
+                style={{ color: "red", fontWeight: "600" }}
+                to="/verifyUser"
+              >
+                Verificar Cuenta
+              </Link>
+            </motion.div>
+          ) : (
+            ""
+          )
+        ) : (
+          ""
+        )}
 
         <UserContainerStyled
           onClick={() =>
@@ -63,9 +81,6 @@ const Navbar = () => {
           <CartIcon />
         </CartNavStyled>
       </LinksContainerStyled>
-      {/* <NavBarMenuBurger>
-        <GiHamburgerMenu />
-      </NavBarMenuBurger> */}
     </NavbarContainerStyled>
   );
 };
