@@ -2,9 +2,10 @@ import { useSelector } from "react-redux"
 import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({children, redirectTo})=> {
-    const {currentUser} = useSelector(state=> state.user);
+    const user = useSelector(state=> state.user.currentUser.user);
+    console.log(user.verifiel)
 
-    return currentUser ? (
+    return !user?.verifiel ? (
         children
     ) : (
         <Navigate to={redirectTo}/>

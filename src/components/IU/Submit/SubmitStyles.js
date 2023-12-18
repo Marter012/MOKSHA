@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ButtonSubmitStyled = styled.button`
   width: 200px;
+  min-height: 30px;
   padding: 1rem 1.5rem;
   background-color: #217664;
   border-radius: 15px;

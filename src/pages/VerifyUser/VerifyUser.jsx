@@ -14,6 +14,7 @@ import { verifyUser } from "../../axios/axiosUser";
 import { setCurrentUser } from "../../redux/user/userSlice";
 import ModalErrors from "../../components/ModalPanel/ModalErrors";
 import ModalGeneric from "../../components/ModalPanel/ModalGeneric";
+import Loader from "../../components/IU/Loader/Loader";
 
 const VerifyUser = () => {
 
@@ -35,7 +36,7 @@ const VerifyUser = () => {
 
       <FoundContainerStyled>
         <FoundTextStyled>
-          <p>Ingrese el codigo enviado a "{userData.user.email}" </p>
+          <p>Ingrese el codigo enviado a "{userData?.user.email}" </p>
           <Formik
             initialValues={verifyUserInitialValues}
             validationSchema={verifyUserSchema}
@@ -51,7 +52,8 @@ const VerifyUser = () => {
                   })                  
                 );
                 setShow(!show)
-                setShowMsg("valid");
+                setShowMsg("");
+                console.log("hola")
               } else {
                 setShowMsg(valid);
                 setShowError(!showError);
@@ -59,14 +61,16 @@ const VerifyUser = () => {
               }
             }}
           >
-            <Form>
+            {({isSubmitting})=>(
+              <Form>
               <LoginInput
                 name="code"
                 type="text"
                 placeholder="Codigo de verificacion"
               />
-              <Submit type="button">Verificar</Submit>
+              <Submit type="button">{isSubmitting ? <Loader/> : "Verificar"}</Submit>
             </Form>
+            )}
           </Formik>
         </FoundTextStyled>
       </FoundContainerStyled>

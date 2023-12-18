@@ -2,24 +2,21 @@ import styled from "styled-components";
 import { Form } from "../Login/LoginStyles";
 
 export const InfoContainerStyles = styled.div`
-  height: auto;
   display: flex;
   background-color: rgb(255, 255, 255, 0.6);
-
+  margin-top : 100px;
   img {
-    position: absolute;
+    position: fixed;
     z-index: -1;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
   }
-
-  @media (max-width: 1000px) {
+  @media (max-width : 1000px) {
     display: block;
   }
 `;
 export const InformationContainer = styled.div`
-  width: 50%;
   height: 100vh;
   display: flex;
   font-family: 'Dancing Script', cursive;
@@ -39,22 +36,24 @@ export const InformationContainer = styled.div`
   }
 
   span {
-    width: 80%;
+    width: 70%;
     font-size: 1.8rem;
     
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1050px) {
     width: 100vw;
-    img {
-      width: 100vw;
+    p {
+      font-size: 2rem;
+    }
+    span {
+      font-size: 1.4rem;
     }
   }
   @media (max-width: 600px) {
     p {
       font-size: 2.5rem;
     }
-
     span {
       width: 80%;
       font-size: 1.1rem;
@@ -73,8 +72,7 @@ export const InformationContainer = styled.div`
 `;
 
 export const FormContacto = styled.div`
-  margin-top: 90px;
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

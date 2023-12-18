@@ -5,7 +5,7 @@ export const RegisterWrapper = styled.div`
   width: 100vw;
   min-height: calc(100vh - (170px));
   display: flex;
-  margin-top: 100px;
+  margin-top: 130px;;
   align-items: center;
   justify-content: center;
 `;

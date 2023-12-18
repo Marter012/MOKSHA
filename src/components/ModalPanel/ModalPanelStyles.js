@@ -57,6 +57,7 @@ export const ContainerModalPanel = styled.div`
   background-color: #9ce3d4;
   display: flex;
   justify-content: center;
+  text-align: center;
   align-items: center;
   border: dashed 1px black;
 

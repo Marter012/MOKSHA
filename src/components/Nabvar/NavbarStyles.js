@@ -1,18 +1,17 @@
 import styled from "styled-components";
 
 export const NavbarContainerStyled = styled.header`
-  height: 90px;
   width: 100vw;
-  background-color: var(--primary);
-  z-index: +5;
-  position: fixed;
   display: flex;
+  flex-direction: column;
+  height: 130px;
+  background-color: var(--primary);
+  z-index: +50;
+  position: fixed;
   justify-content: space-around;
   align-items: center;
 
   @media (max-width: 960px) {
-    flex-direction: column;
-    height: auto;
   }
   @media (max-width: 600px) {
     flex-direction: row;
@@ -37,10 +36,10 @@ export const LogoStyled = styled.div`
 `;
 
 export const LinksContainerStyled = styled.div`
-  width: 70%;
+  width: 100vw;
   color: white;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   gap: 40px;
 
@@ -59,7 +58,6 @@ export const LinksContainerStyled = styled.div`
   }
 
   @media (max-width: 1100px) {
-    width: 50%;
     a {
       padding: 0.5rem;
 
@@ -70,24 +68,17 @@ export const LinksContainerStyled = styled.div`
     }
   }
 
-  @media (max-width: 960px) {
-    width: 80%;
-  }
-
   @media (max-width: 600px) {
     display: flex;
     flex-direction: column;
     position: absolute;
     padding: 10px;
+    width: 50vw;
     transition-duration: 1s;
-    ${({ burgerMenu }) =>
-      burgerMenu
-        ? { left : "0px"}
-        : { left : "-300px"}}
+    ${({ burgerMenu }) => (burgerMenu ? { left: "0vw" } : { left: "-120vw" })}
     border-top: 1px solid black;
     box-shadow: 0 19px 38px black;
-    width: 40vw;
-    top: 85px;
+    top: 130px;
     gap: 30px;
     background-color: var(--primary);
     border-bottom-right-radius: 10px;
@@ -101,7 +92,6 @@ export const LinksContainerStyled = styled.div`
       font-size: 1.2rem;
     }
   }
-  
 `;
 export const UserContainerStyled = styled.div`
   font-size: 1.2rem;
@@ -145,19 +135,55 @@ export const UserContainerStyled = styled.div`
   }
 `;
 
+export const PanelClose = styled.div`
+  display: flex;
+  position: fixed;
+  z-index: +100;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  ${({ showPanelClose }) =>
+    !showPanelClose ? { top: "-100vh" } : { top: "0px" }}
+  transition-duration: 1s;
+
+  section {
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+    border-bottom-left-radius: 15px;
+    border-left: 1px dashed red;
+    background-color: red;
+    top: 0;
+    right: 0;
+    width: 20vw;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    section {
+      width: 30vw;
+    }
+  }
+
+  @media (max-width: 600px) {
+    section {
+      width: 50vw;
+      height: 130px;
+    }
+  }
+`;
+
 export const LinkContainerStyled = styled.div`
   color: black;
   font-size: 1.5rem;
 `;
 
-export const ContainerCartIcon = styled.div`
-  width: 10px;
-`;
-
 export const CartNavStyled = styled.div`
-  position: absolute;
-  top: 40px;
-  right: 40px;
+  margin-right: 32px;
   cursor: pointer;
 
   span {
@@ -172,6 +198,12 @@ export const CartNavStyled = styled.div`
     color: black;
     background-color: red;
     font-size: 0.9rem;
+  }
+
+  @media (max-width : 600px) {
+    position: absolute;
+    top: -75px;
+    left: 80px;
   }
 `;
 

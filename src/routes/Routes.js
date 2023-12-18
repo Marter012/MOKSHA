@@ -7,6 +7,7 @@ import Register from '../pages/Register/Register'
 import InfoMoksha from '../pages/InfoMoksha/infoMoksha'
 import PageNotFound from '../pages/PageNotFound/PageNotFound'
 import VerifyUser from '../pages/VerifyUser/VerifyUser'
+import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
 
 
 const Routes = () => {
@@ -18,7 +19,13 @@ const Routes = () => {
       <Route path='/login' element={<Login/>}/>
       <Route path='/Register' element={<Register/>}/>
       <Route path='/infoMoksha' element={<InfoMoksha/>}/>
-      <Route path='/verifyUser' element={<VerifyUser/>}/>
+      {/* <Route path='/verifyUser' element={<VerifyUser/>}/> */}
+
+      <Route path='/verifyUser' element={
+        <ProtectedRoute redirectTo={"/products"}>
+          <VerifyUser />
+        </ProtectedRoute>
+      } />
 
       <Route path='*' element={<PageNotFound />} />
     </ReactDomRoutes>

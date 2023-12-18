@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const WrappetContainerProducts = styled.div`
-  margin-top: 90px;
+  margin-top: 130px;
 
 `
 
