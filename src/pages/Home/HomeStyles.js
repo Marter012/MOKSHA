@@ -5,15 +5,16 @@ export const HomeContainerStyles = styled.div`
 `;
 export const DescriptionContainer = styled.div`
   width: 100vw;
-  height: 900px;
+  height: 100vh;
   display: flex;
   text-align: center;
   align-items: center;
+  overflow: hidden;
   img{
     position: absolute;
     z-index: -1;
     width: 100vw;
-    height: 900px;
+    height: 100%;
     object-fit: cover;
   }
   section {
@@ -49,14 +50,17 @@ export const DescriptionContainer = styled.div`
     span {
       font-size: 1rem;
     }
+    div{
+      height: 70%;
+    }
   }
 
-  @media (max-width: 450px) {
-    display: block;
-    height: auto;
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction : column;
+    justify-content: space-evenly;
     section{
-    border: 1px dashed black;
-
+      align-items: center;
     }
   }
 
@@ -97,14 +101,14 @@ export const InformationContainer = styled.div`
 
 export const SectionSlider = styled.div`
   width: 100vw;
-  height: 700px;
+  height: 100vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   background-color: rgb(0, 0, 0, 0.3);
   color: white;
   
-  @media(max-width: 400px){
+  @media(max-width: 500px){
     padding: 0px;
   }
 `;
@@ -135,9 +139,19 @@ export const SliderInfo = styled.div`
       font-size: 2.2rem;
     }
   }
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+  
 `;
 
 export const SliderInfoButtons = styled.div`
   display: flex;
   justify-content: space-evenly;
+  gap: 50px;
+  @media (max-width: 450px) {
+    gap: 25px;
+
+  }
 `;

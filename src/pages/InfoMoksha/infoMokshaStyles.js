@@ -22,6 +22,7 @@ export const InformationContainer = styled.div`
   width: 50%;
   height: 100vh;
   display: flex;
+  font-family: 'Dancing Script', cursive;
   align-items: center;
   div {
     width: 100%;
@@ -34,12 +35,13 @@ export const InformationContainer = styled.div`
   }
 
   p {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   span {
     width: 80%;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    
   }
 
   @media (max-width: 1000px) {
@@ -58,6 +60,16 @@ export const InformationContainer = styled.div`
       font-size: 1.1rem;
     }
   }
+  @media (max-width: 450px) {
+    p {
+      font-size: 3rem;
+    }
+
+    span {
+      width: 80%;
+      font-size: 1.7rem;
+    }
+  }
 `;
 
 export const FormContacto = styled.div`
@@ -69,7 +81,8 @@ export const FormContacto = styled.div`
   text-align: center;
 
   h3 {
-    font-size: 2rem;
+  font-family: 'Dancing Script', cursive;
+    font-size: 2.7rem;
   }
 
   @media (max-width: 1000px) {

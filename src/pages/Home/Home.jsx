@@ -71,7 +71,7 @@ const Home = () => {
             </ButtonStyled>
             <ButtonStyled
               whileTap={{ scale: 0.5 }}
-              bg_color="#154C40"
+              bg_color="#227C68"
               color="white"
               onClick={() => {
                 navigate("/products");
@@ -82,7 +82,7 @@ const Home = () => {
             </ButtonStyled>
             <ButtonStyled
               whileTap={{ scale: 0.5 }}
-              bg_color="#154C40"
+              bg_color="#2FAC91"
               color="white"
               onClick={() => {
                 navigate("/products");

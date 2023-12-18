@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const HeroContainerStyles = styled.div`
     display: flex;
-    height: calc(100vh);
+    height: calc(100vh + 120px);
     justify-content: end;
     align-items: center;
+    overflow: hidden;
 
     & div{
         z-index: +2;

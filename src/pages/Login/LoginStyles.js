@@ -7,6 +7,7 @@ export const LoginWrapper = styled.div`
   display: flex;
   margin-top: 100px;
   justify-content: center;
+  align-items: center;
 `;
 
 export const ContainerLogin = styled.div`
@@ -53,27 +54,27 @@ export const ContainerForm = styled.div`
   justify-content: center;
 
   @media (max-width: 1100px) {
-      width: 60%;
-    
+    width: 60%;
   }
 
   @media (max-width: 750px) {
     width: 90%;
-    
+
     border-radius: 20px;
 
-
-    h1{
+    h1 {
       font-size: 1.3rem;
     }
-    input{
+    input {
       width: 200px;
     }
   }
 
-  @media (max-width: 400px) {
-    input{
-      font-size: 0.8rem;
+  @media (max-width: 500px) {
+    form {
+      input {
+        width: 160px;
+      }
     }
   }
 `;

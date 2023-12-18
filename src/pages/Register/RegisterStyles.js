@@ -6,8 +6,9 @@ export const RegisterWrapper = styled.div`
   min-height: calc(100vh - (170px));
   display: flex;
   margin-top: 100px;
+  align-items: center;
   justify-content: center;
-  `;
+`;
 
 export const ContainerRegister = styled.div`
   height: 450px;
@@ -39,6 +40,17 @@ export const ContainerRegister = styled.div`
       display: none;
     }
   }
+
+  @media (max-width: 500px) {
+    form {
+      input {
+        width: 160px;
+      }
+      button {
+        padding: 5px;
+      }
+    }
+  }
 `;
 
 export const ContainerFormRegister = styled.div`
@@ -55,13 +67,11 @@ export const ContainerFormRegister = styled.div`
 
   @media (max-width: 860px) {
     width: 80%;
-  border-radius: 20px;
-
+    border-radius: 20px;
   }
 
   @media (max-width: 550px) {
-    
-    input{
+    input {
       width: 200px;
     }
   }

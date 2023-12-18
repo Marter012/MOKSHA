@@ -11,9 +11,12 @@ export const NavbarContainerStyled = styled.header`
   align-items: center;
 
   @media (max-width: 960px) {
-    display: flex;
     flex-direction: column;
     height: auto;
+  }
+  @media (max-width: 600px) {
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
 
@@ -27,6 +30,9 @@ export const LogoStyled = styled.div`
 
   @media (max-width: 960px) {
     font-size: 2rem;
+  }
+  @media (max-width: 600px) {
+    padding: 20px;
   }
 `;
 
@@ -69,18 +75,33 @@ export const LinksContainerStyled = styled.div`
   }
 
   @media (max-width: 600px) {
-    height: 60px;
-    gap:10px;
-
-    a {
-      padding: 0.4rem;
-
-      font-size: 0.7rem;
-    }
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding: 10px;
+    transition-duration: 1s;
+    ${({ burgerMenu }) =>
+      burgerMenu
+        ? { left : "0px"}
+        : { left : "-300px"}}
+    border-top: 1px solid black;
+    box-shadow: 0 19px 38px black;
+    width: 40vw;
+    top: 85px;
+    gap: 30px;
+    background-color: var(--primary);
+    border-bottom-right-radius: 10px;
     div {
-      font-size: 0%.7;
+      width: 100%;
+      div {
+        font-size: 1.2rem;
+      }
+    }
+    a {
+      font-size: 1.2rem;
     }
   }
+  
 `;
 export const UserContainerStyled = styled.div`
   font-size: 1.2rem;
@@ -129,8 +150,14 @@ export const LinkContainerStyled = styled.div`
   font-size: 1.5rem;
 `;
 
+export const ContainerCartIcon = styled.div`
+  width: 10px;
+`;
+
 export const CartNavStyled = styled.div`
-  position: relative;
+  position: absolute;
+  top: 40px;
+  right: 40px;
   cursor: pointer;
 
   span {
@@ -145,5 +172,14 @@ export const CartNavStyled = styled.div`
     color: black;
     background-color: red;
     font-size: 0.9rem;
+  }
+`;
+
+export const ContainerMenuHamburger = styled.div`
+  display: none;
+  padding: 15px;
+  font-size: 2rem;
+  @media (max-width: 600px) {
+    display: flex;
   }
 `;

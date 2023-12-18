@@ -65,6 +65,7 @@ const ModalCart = ({ hidden }) => {
           <ButtonStyled
             onClick={() => dispatch(clearCart())}
             bg_color={" rgb(255, 0, 0,0.8)"}
+            disabled={!cartItems.length}
           >
             <BsTrash3Fill />
           </ButtonStyled>

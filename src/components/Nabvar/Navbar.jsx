@@ -1,10 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import { IoIosMenu } from "react-icons/io";
 import { HiHome } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import {
   CartNavStyled,
+  ContainerCartIcon,
+  ContainerMenuHamburger,
   LinksContainerStyled,
   LogoStyled,
   NavbarContainerStyled,
@@ -16,22 +18,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearCart, toggleHiddenCart } from "../../redux/cart/cartSlice";
 import { setCurrentUser } from "../../redux/user/userSlice";
 import { selectCategory } from "../../redux/categories/categoriesSlice";
+import { toggleHiddenMenu } from "../../redux/burgerMenu/burgerMenu";
 
 const Navbar = () => {
   const user = useSelector((state) => state.user.currentUser);
   const hidden = useSelector((state) => state.cart.hidden);
+  const burgerMenu = useSelector((state) => state.burgerMenu.hidden);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  console.log(burgerMenu)
   return (
     <NavbarContainerStyled>
       <ModalCart hidden={hidden} />
+
+      <ContainerMenuHamburger>
+        <IoIosMenu onClick={()=> dispatch(toggleHiddenMenu(!burgerMenu))}/>
+      </ContainerMenuHamburger>
 
       <LogoStyled>
         <Link to="/">MOKSHA</Link>
       </LogoStyled>
 
-      <LinksContainerStyled>
+      <LinksContainerStyled onClick={()=>dispatch(toggleHiddenMenu(!burgerMenu))} burgerMenu={burgerMenu}>
         <motion.div whileTap={{ scale: 0.9 }}>
           <Link to="/">
             <HiHome />
@@ -76,11 +84,13 @@ const Navbar = () => {
         >
           <div>{user ? `Cerrar Sesion` : "Iniciar Sesion"}</div>
         </UserContainerStyled>
+      </LinksContainerStyled>
 
+      <ContainerCartIcon>
         <CartNavStyled onClick={() => dispatch(toggleHiddenCart(hidden))}>
           <CartIcon />
         </CartNavStyled>
-      </LinksContainerStyled>
+      </ContainerCartIcon>
     </NavbarContainerStyled>
   );
 };

@@ -20,5 +20,7 @@ export const NavButton = styled.button`
   border: 1px dashed grey;
   border-top: none;
   
-  
+  @media (max-width : 500px) {
+    font-size: 1.1rem;
+}
 `;

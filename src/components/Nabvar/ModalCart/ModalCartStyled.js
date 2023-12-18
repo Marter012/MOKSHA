@@ -7,11 +7,11 @@ export const ModalContainerStyled = styled.div`
   top: 0;
   right: 0;
   display: flex;
-  translate: 100vw;
+  transition-duration: 1s;
   ${({ hidden }) =>
-    !hidden
-      ? { animation: "show 500ms", translate: "0px;" }
-      : { animation: "hidden 500ms", translate: "100vw;" }}
+    hidden
+      ? { right : "-500px" }
+      : { right : "0px"}}
 
   gap: 30px;
   flex-direction: column;
@@ -24,24 +24,6 @@ export const ModalContainerStyled = styled.div`
 
   font-size: 1.2rem;
   font-weight: 700;
-
-  @keyframes show {
-    0% {
-      transform: translate(100vw);
-    }
-    100% {
-      transform: translate(0px);
-    }
-  }
-
-  @keyframes hidden {
-    0% {
-      transform: translate(0px);
-    }
-    100% {
-      transform: translate(100vw);
-    }
-  }
 
   @media (max-width: 425px) {
     width: 100vw;
@@ -60,7 +42,7 @@ export const ModalTopStyled = styled.div`
     margin: 0;
   }
 
-  button{
+  button {
     font-size: 2rem;
   }
 `;
